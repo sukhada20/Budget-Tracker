@@ -79,4 +79,21 @@ class API {
     static async setBudget(budgetData) {
         return this.request('/budget', 'POST', budgetData);
     }
+
+    static async getEnvelopes() {
+        return this.request('/envelopes');
+    }
+
+    static async addEnvelope(data) {
+        return this.request('/envelopes', 'POST', data);
+    }
+
+    static async deleteEnvelope(id) {
+        return this.request(`/envelopes/${id}`, 'DELETE');
+    }
+
+    static async spendEnvelope(id, amount) {
+        return this.request(`/envelopes/${id}/spend`, 'POST', { amount });
+    }
 }
+
